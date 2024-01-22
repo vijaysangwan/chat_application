@@ -1,0 +1,332 @@
+@mixin mobile{
+  @media screen and (max-width:480px){
+    @content
+  }
+}
+@mixin tablet{
+  @media screen and (max-width:768px){
+    @content
+  }
+}
+@mixin laptop{
+  @media screen and (max-width:1200px){
+    @content
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+#errorMessage{
+      color: red;
+      font-size: 14px;
+    }
+.formcontainer {
+  background-image: linear-gradient(200deg, #5b56fd, #8985fe);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wrap {
+    background-color: white;
+    padding: 25px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    border-radius: 11px;
+
+    .logo {
+      color: #5d5b8d;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .title {
+      color: #5d5b8d;
+      font-weight: bold;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      input {
+        padding: 15px;
+        border: none;
+        border-bottom: 1px solid #5d5b8d;
+        width: 250px;
+        outline: none;
+
+        &::placeholder {
+          color: rgb(175, 175, 175);
+        }
+      }
+      button {
+        background-color: #0800fa;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        padding: 10px;
+      }
+      label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: rgb(175, 175, 175);
+        font-size: 14px;
+        cursor: pointer;
+
+        img {
+          width: 37px;
+        }
+      }
+    }
+    .error{
+      color: red;
+    }
+    p {
+      color: #5d5b8d;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  }
+}
+.home {
+  background-image: linear-gradient(200deg, #5b56fd, #8985fe);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  
+
+  .container {
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 65%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+    @include tablet{
+      width: 90%;
+    }
+  }
+  .sidebar {
+    flex: 1;
+    background-color: #3b37c4;
+    position: relative;
+
+    .navbar {
+      background: #28258b;
+      display: flex;
+      align-items: center;
+      height: 50px;
+      padding: 10px;
+      justify-content: space-between;
+      color: #ddddf7;
+
+      .logosmall {
+        font-weight: bold;
+        @include tablet {
+          display: none;
+        }
+      }
+      .user {
+        display: flex;
+        gap: 10px;
+
+        img {
+          background-color: #ddddf7;
+          height: 24px;
+          width: 24px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        button {
+          border: none;
+          background-color: #1d15f4;
+          color: #ddddf7;
+          font-size: 10px;
+          cursor: pointer;
+
+          @include tablet{
+            position: absolute;
+            bottom: 10px;
+            height: 26px;
+            width: 56px;
+          }
+        }
+      }
+    }
+    .search {
+      border-bottom: 1px solid gray;
+
+      .searchform {
+        padding: 10px;
+        input {
+          background: transparent;
+          border: none;
+          outline: none;
+          color: white;
+
+          &::placeholder {
+            color: lightgray;
+          }
+        }
+      }
+    }
+    .userchat {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background: #28258b;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .userchatinfo {
+        span {
+          font-weight: 500px;
+          font-size: 18px;
+        }
+        p {
+          margin-block-start: 0em;
+          margin-block-end: 0em;
+
+          font-size: 14px;
+          color: lightgray;
+        }
+      }
+    }
+  }
+  .chat {
+    flex: 2;
+
+    .chatinfo{
+      height: 50px;
+      background: #2e2a95;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: lightgray;
+    }
+    .chaticons{
+      display: flex;
+      gap: 10px;
+
+      .img{
+        height: 24px;
+        cursor: pointer;
+      }
+    }
+    .messages{
+      background: #ddddf7bd;
+      padding: 10px;
+      height: calc(100% - 160px);
+      overflow: scroll;
+
+      .message{
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        .messageinfo{
+          display: flex;
+          flex-direction: column;
+          color: gray;
+          font-weight: 300;
+
+          img{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+        .messagecontent{
+          max-width: 80%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          p{
+            background: white;
+            padding: 10px;
+            border-radius: 0px 10px 10px 10px;
+            max-width: max-content;
+          }
+
+          img{
+            width: 50%;
+          }
+        }
+        &.owner{
+          flex-direction: row-reverse;
+
+          .messagecontent{
+            align-items: flex-end;
+
+            
+            p{
+              background: #0bb4b463;
+              color: white;
+              border-radius: 10px 0px 10px 10px;
+            }
+          }
+        }
+      }
+    }
+    .input{
+      background: white;
+      height: 50px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      input{
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        color: rgb(28, 28, 59);
+
+        &::placeholder{
+          color: lightgray;
+        }
+      }
+      .send{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        img{
+          height: 24px;
+          cursor: pointer;
+        }
+        button{
+          border: none;
+          color: white;
+          background: #5b56fd;
+          padding: 10px 15px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
