@@ -84,13 +84,14 @@ const Register = () => {
         <div className="logo">CHATGRAM</div>
         <div className="title">Register</div>
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="user Name" />
-          <input type="email" placeholder="email id" id="email" />
+          <input type="text" placeholder="user Name" required/>
+          <input type="email" placeholder="email id" id="email" required/>
           <input
             type="password"
             placeholder="password"
             id="password"
             onKeyUp={checkPassword}
+            required
           />
           <span id="errorMessage"></span>
           <input

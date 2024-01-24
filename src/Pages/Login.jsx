@@ -39,12 +39,13 @@ const Login = () => {
         <div className="logo">CHATGRAM</div>
         <div className="title">Login</div>
         <form onSubmit={handleSubmit}>
-          <input type="email" placeholder="email id" />
+          <input type="email" placeholder="email id" required />
           <input
             type="password"
             placeholder="password"
             id="password" 
             onKeyUp={checkPassword}
+            required
           />
           <span id="errorMessage"></span>
 
