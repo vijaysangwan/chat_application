@@ -38,6 +38,7 @@ body {
     gap: 12px;
     align-items: center;
     border-radius: 11px;
+    box-shadow: 0px 0px 20px #272626;
 
     .logo {
       color: #5d5b8d;
@@ -108,7 +109,8 @@ body {
   
 
   .container {
-    border: 1px solid white;
+    border: none;
+    box-shadow: 0px 0px 20px #272626;
     border-radius: 10px;
     width: 65%;
     height: 80%;
