@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useNavigate,Link } from "react-router-dom";
-import {signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate, Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,7 +15,19 @@ const Login = () => {
     const password = e.target[1].value;
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/');
+      navigate("/");
+    } catch (err) {
+      useState(true);
+    }
+  };
+  const guestSubmit = async (e) => {
+    console.log("sbumitted");
+    e.preventDefault();
+    const email = "ansh123@gmail.com";
+    const password = "zxcvbnmp";
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/");
     } catch (err) {
       useState(true);
     }
@@ -43,13 +54,14 @@ const Login = () => {
           <input
             type="password"
             placeholder="password"
-            id="password" 
+            id="password"
             onKeyUp={checkPassword}
             required
           />
           <span id="errorMessage"></span>
 
           <button>Sign In</button>
+          <button onClick={guestSubmit}>Sign In As Guest</button>
           {err && <span className="error">Oops! something went wrong</span>}
         </form>
         <p>
