@@ -20,18 +20,18 @@ const Login = () => {
       useState(true);
     }
   };
-  const guestSubmit = async (e) => {
-    console.log("sbumitted");
-    e.preventDefault();
-    const email = "ansh123@gmail.com";
-    const password = "zxcvbnmp";
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/");
-    } catch (err) {
-      useState(true);
-    }
-  };
+  // const guestSubmit = async (e) => {
+  //   console.log("sbumitted");
+  //   e.preventDefault();
+  //   const email = "ansh123@gmail.com";
+  //   const password = "zxcvbnmp";
+  //   try {
+  //     await signInWithEmailAndPassword(auth, email, password);
+  //     navigate("/");
+  //   } catch (err) {
+  //     useState(true);
+  //   }
+  // };
   const checkPassword = () => {
     var passwordInput = document.getElementById("password").value;
     //  submitdata();
@@ -61,7 +61,7 @@ const Login = () => {
           <span id="errorMessage"></span>
 
           <button>Sign In</button>
-          <button onClick={guestSubmit}>Sign In As Guest</button>
+          {/* <button onClick={guestSubmit}>Sign In As Guest</button> */}
           {err && <span className="error">Oops! something went wrong</span>}
         </form>
         <p>
